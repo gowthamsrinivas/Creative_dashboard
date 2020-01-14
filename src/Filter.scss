@@ -1,0 +1,46 @@
+input[type="range"] {
+    width: 15em;
+}
+
+.btn-group {
+   float: right;
+}
+.btn {
+    border:2px solid #21252987 !important; 
+    background: 0 0;
+    border-radius:1.25rem;
+}
+
+.page-header-title {
+    margin-bottom: 1.5em;
+    margin-top: 0.5em;
+    padding-left: 0.5em;
+}
+
+li {
+    list-style-type: none;
+}
+
+.spacing {
+    padding-left: 2em;
+    cursor: pointer;
+}
+
+.data-point {
+    float:right;
+    padding-right:1em;
+}
+
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-left-radius:1.5rem;
+    border-bottom-left-radius:1.5rem;
+}
+
+.btn-group > .btn:not(:first-child):not(.dropdown-toggle) {
+    border-top-right-radius:1.5rem;
+    border-bottom-right-radius:1.5rem;
+}
+.filter-text {
+    font-size:26px;
+    display:inline-block;
+}
