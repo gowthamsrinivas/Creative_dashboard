@@ -10,12 +10,13 @@ const Popup = (props) => {
 //   Column selection changes based on toggling by user
   function selectionChange(value) {
       let columns = [...props.columns];
-      let index   = columns.findIndex((column,index) => {
+      let foundIndex=-1;
+      columns.forEach((column,index) => {
           if(column.name === value) {
-              return index;
+              foundIndex = index;
           }
       });
-      columns[index].show = !columns[index].show;
+      columns[foundIndex].show = !columns[foundIndex].show;
       props.change(columns);
   }
 

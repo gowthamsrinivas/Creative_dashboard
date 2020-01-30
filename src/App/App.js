@@ -1,11 +1,12 @@
+/* eslint-disable array-callback-return */
 
 import React,{useState, useEffect} from 'react';
 import './App.scss';
-import response from './data.json';
-import Filter from './Filter';
-import Cards from './Cards';
-import Table from './Table.js';
-import Popup from './Popup.js';
+import response from '../Data/data.json';
+import Filter from '../Filter/Filter';
+import Cards from '../Cards/Cards';
+import Table from '../Table/Table.js';
+import Popup from '../Popup/Popup.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -95,7 +96,7 @@ useEffect(()=>{
    let columnData = data;
    let customData ={pepClass1:0,matches:0,monitors:0,countryUS:0};
    countryData['ALL']=riskData['ALL']=watchData['ALL']=pepData['ALL']=customData.monitors = data.length;
-   data.map(item => {
+   data.forEach(item => {
       if(item.pep ===1) {
         customData.pepClass1++;
       }
@@ -115,6 +116,7 @@ useEffect(()=>{
    setTotalColumns(columnsList)
    setColumns(columnList);
    setColumnsData(columnData);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
 },[]);
 
 function applyFilter(filter) {
@@ -185,11 +187,11 @@ return(
       <div className="header">
           Dashboard
           <div className="profile">
-            <i class="fa fa-user-circle-o" style={{fontSize:24+'px'}}></i>
+            <i className="fa fa-user-circle-o" style={{fontSize:24+'px'}}></i>
             <span className="profile-name">{profileName}</span> 
           </div>
       </div>
-      <Filter key="filter_data" data={dataCollection} click={applyFilter} clear={clearFilter}></Filter>
+      <Filter  data={dataCollection} click={applyFilter} clear={clearFilter}></Filter>
       <div className="main-content">
         <Cards data={customData}></Cards>
         <Popup columns={totalColumns} change={selectionChanged}></Popup>

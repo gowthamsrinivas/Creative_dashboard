@@ -24,6 +24,7 @@ li {
 .spacing {
     padding-left: 2em;
     cursor: pointer;
+    color: cadetblue;
 }
 
 .data-point {
@@ -43,4 +44,14 @@ li {
 .filter-text {
     font-size:26px;
     display:inline-block;
+    font-family: "Montserrat",sans-serif;
 }
+ .fa-minus-square span {
+    font-family: "Nunito Sans",sans-serif;
+    padding-left: 7px;
+ }
+
+ .fa-plus-square span {
+    font-family: "Nunito Sans",sans-serif;
+    padding-left: 7px;
+ }

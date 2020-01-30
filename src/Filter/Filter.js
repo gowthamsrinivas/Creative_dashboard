@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState, useEffect} from 'react';
 import  './Filter.scss';
 import DatePicker from "react-datepicker";
@@ -142,19 +143,19 @@ const Filter = (props) => {
        setRiskLevel(risks);
        setWatchList(watcher);
        setPepClass(pepClass);
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     
     // To Change selection of country field
     function changeCountry(value,selected) { 
         // Take shallow copy of country data
         let country = [...countries];
-        var index = country.findIndex((country,index) => {
+        let index=-1;
+        country.forEach((country,id) => {
             if(country.value === value) {
-                return index;
+                index=id;
             }
         })
-        index = index === -1?0:index;
-
         // change attribute value in a particular item in the list
         let item = {
             ...country[index],
@@ -168,11 +169,11 @@ const Filter = (props) => {
     // To Change selection of Risk field
     function changeRisk(value,selected) {
         let risk = [...riskLevel];
-        let index = risk.findIndex((risk,index) => {
+        let index=-1;
+        risk.forEach((risk,id) => {
             if(risk.value === value)
-                return index;
+                index=id;
         })
-        index = index === -1?0:index;
         let item = {
             ...risk[index],
             selected: !selected
@@ -184,11 +185,11 @@ const Filter = (props) => {
     // To Change selection of Watch field
     function changeWatchList(value,selected) {
         let watcher = [...watchList];
-        let index = watcher.findIndex((watcher,index) => {
+        let index=-1;
+        watcher.forEach((watcher,id) => {
             if(watcher.value === value)
-                return index;
+                index=id;
         })
-        index = index === -1?0:index;
         let item = {
             ...watcher[index],
             selected: !selected
@@ -200,11 +201,11 @@ const Filter = (props) => {
     // To Change selection of Pep field
     function changePepClasses(value,selected) {
         let pep = [...pepClass];
-        let index = pep.findIndex((pep,index) => {
+        let index=-1;
+        pep.forEach((pep,id) => {
             if(pep.value === value)
-                return index;
+                index=id;
         })
-        index = index === -1?0:index;
         let item = {
             ...pep[index],
             selected: !selected
@@ -273,7 +274,7 @@ const Filter = (props) => {
         setCountryFlag(!countryFlag);
         let flag = !countryFlag;
         let countryArray = [...countries];
-        countryArray.map((country,index) => {
+        countryArray.forEach((country,index) => {
             if(flag)
               country.show = true;
             else if(!flag && index <= 2)
@@ -289,7 +290,7 @@ const Filter = (props) => {
         setRiskFlag(!riskFlag);
         let flag = !riskFlag;
         let riskArray = [...riskLevel];
-        riskArray.map((risk,index) => {
+        riskArray.forEach((risk,index) => {
             if(flag)
               risk.show = true;
             else if(!flag && index <= 2)
@@ -305,7 +306,7 @@ const Filter = (props) => {
         setWatchFlag(!watchFlag);
         let flag = !watchFlag;
         let watchArray = [...watchList];
-        watchArray.map((watch,index) => {
+        watchArray.forEach((watch,index) => {
             if(flag)
               watch.show = true;
             else if(!flag && index <= 2)
@@ -321,7 +322,7 @@ const Filter = (props) => {
         setPepFlag(!pepFlag);
         let flag = !pepFlag;
         let pepArray = [...pepClass];
-        pepArray.map((pep,index) => {
+        pepArray.forEach((pep,index) => {
             if(flag)
               pep.show = true;
             else if(!flag && index <= 2)
@@ -356,7 +357,7 @@ const Filter = (props) => {
                 <input id="slider" onChange={slideChange} value={slideValue} type="range" name="points" min="0" max="100" steps="20"/>
                 <span className="data-point">({slideValue})</span>
             </div>
-            <fieldset>
+            <fieldset className="fieldHeader">
                 <legend>COUNTRY OF ORIGIN</legend>
                 {countries.length? countries.map((country,index) => {
                     return (
@@ -366,7 +367,7 @@ const Filter = (props) => {
                         
                     );
                 }):''}
-                <a className="spacing" onClick={expandCountries}>{countryFlag?<i className="fa fa-minus-square">Collapse Options</i>:<i className="fa fa-plus">Expand Options</i>}</a>
+                <a href="#" className="spacing" onClick={expandCountries}>{countryFlag?<i className="fa fa-minus-square"><span>Collapse Options</span></i>:<i className="fa fa-plus-square"><span>Expand Options</span></i>}</a>
             </fieldset>
             <fieldset>
                 <legend>RISK LEVEL</legend>
@@ -378,7 +379,7 @@ const Filter = (props) => {
                         </div>
                     )
                 })}
-                <a className="spacing" onClick={expandRisks}>{riskFlag?<i className="fa fa-minus-square">Collapse Options</i>:<i className="fa fa-plus">Expand Options</i>}</a>
+                <a href="#" className="spacing" onClick={expandRisks}>{riskFlag?<i className="fa fa-minus-square"><span>Collapse Options</span></i>:<i className="fa fa-plus-square"><span>Expand Options</span></i>}</a>
                 
             </fieldset>
             <fieldset>
@@ -391,7 +392,7 @@ const Filter = (props) => {
                         </div>
                     )
                 })}
-                <a className="spacing" onClick={expandWatch}>{watchFlag?<i className="fa fa-minus-square">Collapse Options</i>:<i className="fa fa-plus">Expand Options</i>}</a>
+                <a href="#" className="spacing" onClick={expandWatch}>{watchFlag?<i className="fa fa-minus-square"><span>Collapse Options</span></i>:<i className="fa fa-plus-square"><span>Expand Options</span></i>}</a>
                 
             </fieldset>
             <fieldset>
@@ -404,7 +405,7 @@ const Filter = (props) => {
                         </div>
                     )
                 })}
-                <a className="spacing" onClick={expandPep}>{pepFlag?<i className="fa fa-minus-square">Collapse Options</i>:<i className="fa fa-plus">Expand Options</i>}</a>
+                <a href="#" className="spacing" onClick={expandPep}>{pepFlag?<i className="fa fa-minus-square"><span>Collapse Options</span></i>:<i className="fa fa-plus-square"><span>Expand Options</span></i>}</a>
             </fieldset>
             
             </form>

@@ -1,9 +1,20 @@
+
+@import '../Partials/_variables.scss';
+
+
 .popover-body {
-   background-color: #DDD;
+   background-color:#d3d3d366;
    max-height: 15em;
    overflow: auto;
    width: 12em;
    border: 2px solid aliceblue;
+   font-family: $body-font;
+}
+
+.popover-header {
+   font-family: $header-font;
+   color: #DDD;
+   background-color: cadetblue !important;
 }
 
 .unordered-list {
@@ -12,7 +23,7 @@
 
 .unordered-list {
     li {
-        border-bottom: 1px solid #00000033;
+        // border-bottom: 1px solid #00000033;
         padding: 5px 0 5px 0;
     }    
 }
@@ -25,7 +36,7 @@
 
 .filter-option {
     position:relative;
-    top:7em;
+    top:5em;
     float:right;
     padding-right: 3em;
     font-size: 24px
