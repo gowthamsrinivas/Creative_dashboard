@@ -4,6 +4,7 @@ input[type="range"] {
 
 .btn-group {
    float: right;
+   padding-right:10px; 
 }
 .btn {
     border:2px solid #21252987 !important; 
@@ -29,7 +30,7 @@ li {
 
 .data-point {
     float:right;
-    padding-right:1em;
+    padding-right:1.2em;
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {

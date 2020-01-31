@@ -98,8 +98,9 @@ body{
   z-index:100;
   text-align: center;
   color: #DDD;
-  padding-top: 0.5em;
-  font-size: 20px;
+  padding-top: 0.3em;
+  font-size: 24px;
+  font-weight: 800;
   background-color:$header-color;
   font-family: $header-font;
 }
@@ -118,6 +119,7 @@ body{
 
 .kJdJTV{
   top:7em;
+  padding-left: 12px;
 }
 .gzUypv,.iAeWvj,.hqcNvi,.kBUJSp{
   padding:12px !important;
@@ -142,11 +144,11 @@ h2 {
 }
 
 .form-horizontal {
+   padding-left:10px; 
   .control-label {
     text-align: right;
     margin-bottom: 0;
     padding-top:15px;
-    // font-family: $header-font;
   }
 }
 
@@ -160,7 +162,6 @@ legend {
   font-size: 1rem !important;
   font-weight: 700;
   padding-left: 10px !important;
-  // font-family: $header-font;
   
 }
 
@@ -213,6 +214,7 @@ fieldset.fieldHeader {
 
 .profile-name {
   padding-left: 0.5em;
+  font-size: 18px;
 }
 
 .fCQOtc div:first-child  {
